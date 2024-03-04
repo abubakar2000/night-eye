@@ -1,6 +1,8 @@
 import clsx from 'clsx';
+import { Link, useNavigate } from 'react-router-dom';
 
 const BottomBar = () => {
+  const navigate = useNavigate();
   return (
     <div
       style={{
@@ -27,19 +29,24 @@ const BottomBar = () => {
               'active:scale-95 cursor-pointer',
               'bg-black',
             ])}
+            onClick={() => {
+              navigate('/');
+            }}
           >
             Owl Nest
           </div>
         </div>
         <div className="absolute">
-          <img
-            src="/images/FAB.svg"
-            alt=""
-            className={clsx([
-              'w-[60pt] aspect-square -translate-y-10',
-              'active:scale-90 transition-all duration-500',
-            ])}
-          />
+          <Link to={'/quick-menu'}>
+            <img
+              src="/images/FAB.svg"
+              alt=""
+              className={clsx([
+                'w-[60pt] aspect-square -translate-y-10',
+                'active:scale-90 transition-all duration-500',
+              ])}
+            />
+          </Link>
         </div>
         <div className="flex justify-center flex-1">
           <div
@@ -50,6 +57,9 @@ const BottomBar = () => {
               'active:scale-95 cursor-pointer',
               'bg-black',
             ])}
+            onClick={() => {
+              navigate('/near-by-bars');
+            }}
           >
             Near me
           </div>
